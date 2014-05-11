@@ -10,7 +10,7 @@ module Cms
 
     delegate :request, :response, :session,
              :flash, :params, :cookies,
-             :current_user, :logged_in?,
+             :cms_urrent_user, :logged_in?,
              :to => :controller
 
     def self.inherited(subclass)
