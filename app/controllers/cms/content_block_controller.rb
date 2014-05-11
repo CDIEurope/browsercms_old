@@ -278,9 +278,9 @@ module Cms
         when "index", "show", "new", "create", "version", "versions", "usages"
           # Allow
         when "edit", "update"
-          raise Cms::Errors::AccessDenied unless current_user.able_to_edit?(@block)
+          raise Cms::Errors::AccessDenied unless cms_current_user.able_to_edit?(@block)
         when "destroy", "publish", "revert_to"
-          raise Cms::Errors::AccessDenied unless current_user.able_to_publish?(@block)
+          raise Cms::Errors::AccessDenied unless cms_current_user.able_to_publish?(@block)
         else
           raise Cms::Errors::AccessDenied
       end

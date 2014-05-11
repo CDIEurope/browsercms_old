@@ -76,7 +76,7 @@ module Cms
         logger.debug "Using cms subdomain is enabled"
         if request_is_for_cms_subdomain?
           logger.debug "User has required a page on the cms subdomain."
-          if current_user.able_to?(:edit_content, :publish_content, :administrate)
+          if cms_current_user.able_to?(:edit_content, :publish_content, :administrate)
             logger.debug "User has access to cms"
             @show_toolbar = true
           else
@@ -88,7 +88,7 @@ module Cms
         end
       else
         logger.debug "Using cms subdomain is disabled"
-        if current_user.able_to?(:edit_content, :publish_content, :administrate)
+        if cms_current_user.able_to?(:edit_content, :publish_content, :administrate)
           @show_toolbar = true
         end
       end
@@ -120,7 +120,7 @@ module Cms
 
     def check_access_to_page
       set_page_mode
-      if current_user.able_to?(:edit_content, :publish_content, :administrate)
+      if cms_current_user.able_to?(:edit_content, :publish_content, :administrate)
         logger.debug "Displaying draft version of page"
         if page = Page.first(:conditions => {:path => @path})
           @page = page.as_of_draft_version
@@ -135,7 +135,7 @@ module Cms
         page_not_found unless (@page && !@page.archived?)
       end
 
-      unless current_user.able_to_view?(@page)
+      unless cms_current_user.able_to_view?(@page)
         store_location
         raise Cms::Errors::AccessDenied
       end
@@ -163,7 +163,7 @@ module Cms
     end
 
     def set_page_mode
-      @mode = @show_toolbar && current_user.able_to?(:edit_content) ? (params[:mode] || session[:page_mode] || "edit") : "view"
+      @mode = @show_toolbar && cms_current_user.able_to?(:edit_content) ? (params[:mode] || session[:page_mode] || "edit") : "view"
       session[:page_mode] = @mode
     end
 
