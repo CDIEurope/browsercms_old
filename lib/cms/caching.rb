@@ -29,6 +29,7 @@ module Cms
       if caching_enabled?
         flush_caches
       end
+      flush_dashboard_fragments
     end
 
     private
@@ -36,6 +37,10 @@ module Cms
     def flush_caches
       flush_cache_directory(cms_cache_directory)
       flush_cache_directory(mobile_cache_directory)
+    end
+
+    def flush_dashboard_fragments
+      Cms::CacheEntry.all.each {|e| e.expire! }
     end
 
     def flush_cache_directory(cache)
