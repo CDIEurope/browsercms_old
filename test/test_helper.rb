@@ -24,6 +24,15 @@ require 'factories/attachable_factories'
 
 require 'support/engine_controller_hacks'
 
+unless defined?(Cms::CacheEntry)
+  # work around the fact that it's not defined in the project, but in AFG
+  class Cms::CacheEntry
+    def self.all
+      []
+    end
+  end
+end
+
 class ActiveSupport::TestCase
 
   include FactoryGirl::Syntax::Methods
