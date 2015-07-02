@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<ancestry>, ["~> 1.2.4"])
       s.add_runtime_dependency(%q<ckeditor_rails>, ["~> 3.6.4"])
       s.add_runtime_dependency(%q<jquery-rails>, ["~> 2.0"])
-      s.add_runtime_dependency(%q<paperclip>, ["~> 3.1.4"])
+      s.add_runtime_dependency(%q<paperclip>, ["~> 3.4"])
       s.add_runtime_dependency(%q<term-ansicolor>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["< 3.3.0", ">= 3.2.5"])
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ancestry>, ["~> 1.2.4"])
       s.add_dependency(%q<ckeditor_rails>, ["~> 3.6.4"])
       s.add_dependency(%q<jquery-rails>, ["~> 2.0"])
-      s.add_dependency(%q<paperclip>, ["~> 3.1.4"])
+      s.add_dependency(%q<paperclip>, ["~> 3.4"])
       s.add_dependency(%q<term-ansicolor>, [">= 0"])
     end
   else
@@ -45,7 +45,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ancestry>, ["~> 1.2.4"])
     s.add_dependency(%q<ckeditor_rails>, ["~> 3.6.4"])
     s.add_dependency(%q<jquery-rails>, ["~> 2.0"])
-    s.add_dependency(%q<paperclip>, ["~> 3.1.4"])
+    s.add_dependency(%q<paperclip>, ["~> 3.4"])
     s.add_dependency(%q<term-ansicolor>, [">= 0"])
   end
 end
