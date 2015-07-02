@@ -29,6 +29,6 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'cucumber'
   gem 'launchy'
-  gem 'ruby-prof'
+  gem 'ruby-prof', '~> 0.15'
   gem 'aruba'
 end
